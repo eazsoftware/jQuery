@@ -6,6 +6,11 @@
 <body>
     <h1>JQueryUI</h1>
 
+    <ul style="list-style-type:circle">
+        <li><a href="ajax/index-all-ajax.jsp"><h4>All Ajax</h4></a></li>
+        
+    </ul>     
+    
     <ul style="list-style-type:disc">
         <li><a href="selectors/index-all-selectors.jsp"><h4>All Selectors</h4></a></li>
         <li><a href="selectors/index-attributes-selectors.jsp"><h4>Selectors - attributes</h4></a></li>
