@@ -7,6 +7,7 @@
     <h1>JQueryUI All Ajax</h1>
 
     <a href="http://api.jquery.com/category/ajax/"><h3>All Ajax in jquery.com</h3></a>
+    <a href="http://coursesweb.net/jquery/jquery-ajax">Ajax sample tutorial</a>
     
     <ul style="list-style-type:disc">
         <li><a href="ajaxcomplete-ajax.jsp"><h4>Ajax complete</h4></a></li>
