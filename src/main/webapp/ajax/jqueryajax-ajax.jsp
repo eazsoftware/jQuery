@@ -605,9 +605,392 @@
                     return(false); // Prevent default click.
                 });
             </script>
-        </div>     
+        </div>
 
-        processData
+        <div id="example18">   
+            <div>
+                <p><b>processData</b> | data | context | complete | success</p>
+                <p></p>
+                <button class="trigger">Trigger
+            </div>      
+            <div class="result">result</div> 
+            <div class="log">log</div>
+            <hr/>
+            
+            <script>
+                var examplediv = $('#example18');
+                
+                var mydata = "name=Javier&otherparam=ignoredvalue";
+                //var mydata = { name: "Javier",
+                //               otherparam: "ignoredvalue" }; //And set processData: false... we'll get a request like: "http://localhost:8084/jQuery/ajax/whattimeisit-json.jsp?[object%20Object]"
+                
+                $(examplediv).find('.trigger').click(            
+                function() {
+                    $.ajax(
+                    {
+                        url: 'whattimeisit-json.jsp',
+                        dataType: 'json',
+                        context: examplediv,
+                        data: mydata,
+                        processData: true,
+                        //processData: false,
+                        complete: function(){
+                            $(this).find( ".log" ).text( "Ajax call completed." );
+                        },
+                        success: function( strData ){
+                            $(this).find( ".result" ).text( strData.Saludation + " # " + strData.Time );
+                        }                        
+                    }							
+                    );
+                    return(false); // Prevent default click.
+                });
+            </script>
+        </div>
+
+        <div id="example19">   
+            <div>
+                <p><b>statusCode</b> | data | context | success</p>
+                <p></p>
+                <button class="trigger">Trigger
+            </div>      
+            <div class="result">result</div> 
+            <div class="log">log</div>
+            <hr/>
+            
+            <script>
+                var examplediv = $('#example19');
+                
+                var mydata = { name: "Javier",
+                               otherparam: "ignoredvalue" };
+                
+                $(examplediv).find('.trigger').click(            
+                function() {
+                    $.ajax(
+                    {
+                        url: 'whattimeisit-json.jsp',
+                        dataType: 'json',
+                        context: examplediv,
+                        data: mydata,
+                        success: function( strData ){
+                            $(this).find( ".result" ).text( strData.Saludation + " # " + strData.Time );
+                        },
+                        statusCode: {
+                          404: function() {
+                            $(this).find( ".log" ).text( "Page not found" );
+                          },
+                          200: function() {
+                            $(this).find( ".log" ).text( "Request accepted" );
+                          }                          
+                        }                        
+                    }							
+                    );
+                    return(false); // Prevent default click.
+                });
+            </script>
+        </div>         
+
+        <div id="example20">   
+            <div>
+                <p><b>timeout</b> | data | context | complete | success</p>
+                <p></p>
+                <button class="trigger">Trigger
+            </div>      
+            <div class="result">result</div> 
+            <div class="log">log</div>
+            <hr/>
+            
+            <script>
+                var examplediv = $('#example20');
+                
+                var mydata = "name=Javier&otherparam=ignoredvalue";
+                
+                $(examplediv).find('.trigger').click(            
+                function() {
+                    $.ajax(
+                    {
+                        url: 'whattimeisit-json.jsp',
+                        dataType: 'json',
+                        context: examplediv,
+                        data: mydata,
+                        timeout: 450, //whattimeisit-json.jsp has a 500ms delay
+                        complete: function(){
+                            $(this).find( ".log" ).text( "Ajax call completed." );
+                        },
+                        success: function( strData ){
+                            $(this).find( ".result" ).text( strData.Saludation + " # " + strData.Time );
+                        },                 
+                        error: function(x, t, m) {
+                            $(this).find( ".result" ).text( "Ajax call did NOT complete ["+t+"]" );
+                        }                        
+                    }							
+                    );
+                    return(false); // Prevent default click.
+                });
+            </script>
+        </div>        
+
+        <div id="example21">   
+            <div>
+                <p><b>type - GET</b> | timeout | data | context | complete | success | error</p>
+                <p></p>
+                <button class="trigger">Trigger
+            </div>      
+            <div class="result">result</div> 
+            <div class="log">log</div>
+            <hr/>
+            
+            <script>
+                var examplediv = $('#example21');
+                
+                var mydata = "name=Javier&otherparam=ignoredvalue";
+                
+                $(examplediv).find('.trigger').click(            
+                function() {
+                    $.ajax(
+                    {
+                        url: 'whattimeisit-json.jsp',
+                        dataType: 'json',
+                        context: examplediv,
+                        data: mydata,
+                        timeout: 1000,
+                        type: "GET",
+                        complete: function(){
+                            $(this).find( ".log" ).text( "Ajax call completed." );
+                        },
+                        success: function( strData ){
+                            $(this).find( ".result" ).text( strData.Saludation + " # " + strData.Time );
+                        },                 
+                        error: function(x, t, m) {
+                            $(this).find( ".result" ).text( "Ajax call did NOT complete ["+t+"]" );
+                        }                        
+                    }							
+                    );
+                    return(false); // Prevent default click.
+                });
+            </script>
+        </div>   
+        
+        <div id="example22">   
+            <div>
+                <p><b>type - POST</b> | timeout | data | context | complete | success | error</p>
+                <p></p>
+                <button class="trigger">Trigger
+            </div>      
+            <div class="result">result</div> 
+            <div class="log">log</div>
+            <hr/>
+            
+            <script>
+                var examplediv = $('#example22');
+                
+                var mydata = "name=Javier&otherparam=ignoredvalue";
+                
+                $(examplediv).find('.trigger').click(            
+                function() {
+                    $.ajax(
+                    {
+                        url: 'whattimeisit-json.jsp',
+                        dataType: 'json',
+                        context: examplediv,
+                        data: mydata,
+                        timeout: 1000,
+                        type: "POST",
+                        complete: function(){
+                            $(this).find( ".log" ).text( "Ajax call completed." );
+                        },
+                        success: function( strData ){
+                            $(this).find( ".result" ).text( strData.Saludation + " # " + strData.Time );
+                        },                 
+                        error: function(x, t, m) {
+                            $(this).find( ".result" ).text( "Ajax call did NOT complete ["+t+"]" );
+                        }                        
+                    }							
+                    );
+                    return(false); // Prevent default click.
+                });
+            </script>
+        </div>
+ 
+        <div id="example23">   
+            <div>
+                <p><b>jqXHR - DONE</b> | type | timeout | data | context | success | error</p>
+                <p>The jQuery XMLHttpRequest (jqXHR) object returned by $.ajax() as of jQuery 1.5 is a 
+                    superset of the browser's native XMLHttpRequest object. For example, it contains 
+                    responseText and responseXML properties, as well as a getResponseHeader() method. 
+                    When the transport mechanism is something other than XMLHttpRequest (for example, 
+                    a script tag for a JSONP request) the jqXHR object simulates native XHR functionality 
+                    where possible.</p>
+                <button class="trigger">Trigger
+            </div>      
+            <div class="result">result</div> 
+            <div class="log">log</div>
+            <hr/>
+            
+            <script>
+                var examplediv = $('#example23');
+                
+                var mydata = "name=Javier&otherparam=ignoredvalue";
+                
+                $(examplediv).find('.trigger').click(            
+                function() {
+                    $.ajax(
+                    {
+                        url: 'whattimeisit-json.jsp',
+                        dataType: 'json',
+                        context: examplediv,
+                        data: mydata,
+                        timeout: 1000,
+                        type: "POST",
+                        success: function( strData ){
+                            $(this).find( ".result" ).text( strData.Saludation + " # " + strData.Time );
+                        },                 
+                        error: function(x, t, m) {
+                            $(this).find( ".result" ).text( "Ajax call did NOT complete ["+t+"]" );
+                        }                        
+                    }).done(function(data, textStatus, jqXHR){
+                            $(this).find( ".log" ).text( "jqXHR - " + textStatus );
+                        });
+                    
+                    return(false); // Prevent default click.
+                });
+            </script>
+        </div>
+
+        <div id="example24">   
+            <div>
+                <p><b>jqXHR - FAIL</b> | type | timeout | data | context | success | error</p>
+                <p>An alternative construct to the error callback option, the .fail() method 
+                    replaces the deprecated .error() method. Refer to deferred.fail() for 
+                    implementation details.</p>
+                <button class="trigger">Trigger
+            </div>      
+            <div class="result">result</div> 
+            <div class="log">log</div>
+            <hr/>
+            
+            <script>
+                var examplediv = $('#example24');
+                
+                var mydata = "name=Javier&otherparam=ignoredvalue";
+                
+                $(examplediv).find('.trigger').click(            
+                function() {
+                    $.ajax(
+                    {
+                        url: 'whattimeisit-json.jsp',
+                        dataType: 'json',
+                        context: examplediv,
+                        data: mydata,
+                        timeout: 400,
+                        type: "POST",
+                        success: function( strData ){
+                            $(this).find( ".result" ).text( strData.Saludation + " # " + strData.Time );
+                        },                 
+                        error: function(x, t, m) {
+                            $(this).find( ".result" ).text( "Ajax call did NOT complete ["+t+"]" );
+                        }                        
+                    }).fail(function(jqXHR, textStatus, errorThrown){
+                            $(this).find( ".log" ).text( "jqXHR - " + textStatus );
+                        });
+                    
+                    return(false); // Prevent default click.
+                });
+            </script>
+        </div>
+
+        <div id="example25">   
+            <div>
+                <p><b>jqXHR - ALWAYS</b> | type | timeout | data | context | success | error</p>
+                <p>An alternative construct to the complete callback option, the .always() method 
+                    replaces the deprecated .complete() method.
+
+                    In response to a successful request, the function's arguments are the same as 
+                    those of .done(): data, textStatus, and the jqXHR object. For failed requests 
+                    the arguments are the same as those of .fail(): the jqXHR object, textStatus, 
+                    and errorThrown. Refer to deferred.always() for implementation details.</p>
+                <button class="trigger">Trigger
+            </div>      
+            <div class="result">result</div> 
+            <div class="log">log</div>
+            <hr/>
+            
+            <script>
+                var examplediv = $('#example25');
+                
+                var mydata = "name=Javier&otherparam=ignoredvalue";
+                
+                $(examplediv).find('.trigger').click(            
+                function() {
+                    $.ajax(
+                    {
+                        url: 'whattimeisit-json.jsp',
+                        dataType: 'json',
+                        context: examplediv,
+                        data: mydata,
+                        timeout: 1000,
+                        type: "POST",
+                        success: function( strData ){
+                            $(this).find( ".result" ).text( strData.Saludation + " # " + strData.Time );
+                        },                 
+                        error: function(x, t, m) {
+                            $(this).find( ".result" ).text( "Ajax call did NOT complete ["+t+"]" );
+                        }                        
+                    }).always(function(data, textStatus, errorThrown) {
+                            $(this).find( ".log" ).text( "jqXHR - " + textStatus );
+                        });
+                    
+                    return(false); // Prevent default click.
+                });
+            </script>
+        </div>
+
+        <div id="example26">   
+            <div>
+                <p><b>jqXHR - THEN</b> | type | timeout | data | context | success | error</p>
+                <p>Incorporates the functionality of the .done() and .fail() methods, allowing 
+                    (as of jQuery 1.8) the underlying Promise to be manipulated. 
+                    Refer to deferred.then() for implementation details.</p>
+                <button class="trigger">Trigger
+            </div>      
+            <div class="result">result</div> 
+            <div class="log">log</div>
+            <hr/>
+            
+            <script>
+                var examplediv = $('#example26');
+                
+                var mydata = "name=Javier&otherparam=ignoredvalue";
+                
+                $(examplediv).find('.trigger').click(            
+                function() {
+                    $.ajax(
+                    {
+                        url: 'whattimeisit-json.jsp',
+                        dataType: 'json',
+                        context: examplediv,
+                        data: mydata,
+                        timeout: 1000, //400 for fail
+                        type: "POST",
+                        success: function( strData ){
+                            $(this).find( ".result" ).text( strData.Saludation + " # " + strData.Time );
+                        },                 
+                        error: function(x, t, m) {
+                            $(this).find( ".result" ).text( "Ajax call did NOT complete ["+t+"]" );
+                        }                        
+                    }).then( function(data, textStatus, jqXHR) {
+                                $(this).find( ".log" ).text( "jqXHR - " + textStatus );                        
+                             },
+                             function(jqXHR, textStatus, errorThrown) {
+                                 $(this).find( ".log" ).text( "jqXHR - " + textStatus );
+                             }
+                       );
+                    
+                    return(false); // Prevent default click.
+                });
+            </script>
+        </div>        
+
+        For backward compatibility with XMLHttpRequest, a jqXHR object will expose the following properties and methods:
         
         
     </body>
