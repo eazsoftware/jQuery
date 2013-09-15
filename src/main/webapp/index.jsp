@@ -13,13 +13,16 @@
     
     <ul style="list-style-type:disc">
         <li><a href="selectors/index-all-selectors.jsp"><h4>All Selectors</h4></a></li>
-        <li><a href="selectors/index-attributes-selectors.jsp"><h4>Selectors - attributes</h4></a></li>
-        <li><a href="selectors/index-basic-filter-selectors.jsp"><h4>Selectors - basic filter</h4></a></li>        
-        <li><a href="selectors/index-basic-selectors.jsp"><h4>Selectors - basic</h4></a></li>                
-        <li><a href="selectors/index-child-filter-selectors.jsp"><h4>Selectors - child filter</h4></a></li>
-        <li><a href="selectors/index-content-filter-selectors.jsp"><h4>Selectors - content filter</h4></a></li>        
-        <li><a href="selectors/index-form-selectors.jsp"><h4>Selectors - form</h4></a></li>                
-        <li><a href="selectors/index-hierarchy-selectors.jsp"><h4>Selectors - hierarchy</h4></a></li>
+        <ul>
+            <li><a href="selectors/index-attributes-selectors.jsp"><h4>Selectors - attributes</h4></a></li>
+            <li><a href="selectors/index-basic-filter-selectors.jsp"><h4>Selectors - basic filter</h4></a></li>        
+            <li><a href="selectors/index-basic-selectors.jsp"><h4>Selectors - basic</h4></a></li>                
+            <li><a href="selectors/index-child-filter-selectors.jsp"><h4>Selectors - child filter</h4></a></li>
+            <li><a href="selectors/index-content-filter-selectors.jsp"><h4>Selectors - content filter</h4></a></li>        
+            <li><a href="selectors/index-form-selectors.jsp"><h4>Selectors - form</h4></a></li>                
+            <li><a href="selectors/index-hierarchy-selectors.jsp"><h4>Selectors - hierarchy</h4></a></li>
+            <li><a href="selectors/index-jquery-extensions-selectors.jsp"><h4>Selectors - jQuery extensions</h4></a></li>            
+        </ul>
     </ul>         
     
 </body>

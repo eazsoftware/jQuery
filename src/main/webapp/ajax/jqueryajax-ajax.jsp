@@ -946,7 +946,7 @@
 
         <div id="example26">   
             <div>
-                <p><b>jqXHR - THEN</b> | type | timeout | data | context | success | error</p>
+                <p><b>jqXHR - THEN</b> | datatype | type | timeout | data | context | success | error</p>
                 <p>Incorporates the functionality of the .done() and .fail() methods, allowing 
                     (as of jQuery 1.8) the underlying Promise to be manipulated. 
                     Refer to deferred.then() for implementation details.</p>
@@ -990,8 +990,67 @@
             </script>
         </div>        
 
-        For backward compatibility with XMLHttpRequest, a jqXHR object will expose the following properties and methods:
+        <p>
+            For backward compatibility with XMLHttpRequest, a jqXHR object will expose the 
+            following properties and readyState.
+            <ul>
+                <li>readyState</li>
+                <li>status</li>
+                <li>statusText</li>
+                <li>responseXML and/or responseText when the underlying request responded with xml and/or text, respectively</li>
+                <li>setRequestHeader(name, value) which departs from the standard by replacing the old value with the new one rather than concatenating the new value to the old one</li>
+                <li>getAllResponseHeaders()</li>
+                <li>getResponseHeader()</li>
+                <li>statusCode()</li>
+                <li>abort()</li>
+            </ul>            
+        </p>
         
+        <div id="example27">   
+            <div>
+                <p><b>jqXHR - readyState</b> | datatype | type | timeout | data | context | success | error</p>
+                <p>Where readyState: 
+                    <ul>
+                        <li>0 The request is not initialized</li>
+                        <li>1 The request has been set up</li>
+                        <li>2 The request has been sent</li>
+                        <li>3 The request is in process</li>
+                        <li>4 The request is complete</li>
+                    </ul>                      
+                </p>
+                <button class="trigger">Trigger
+            </div>      
+            <div class="result">result</div> 
+            <div class="log">log</div>
+            <hr/>
+            
+            <script>
+                var examplediv = $('#example27');
+                
+                var mydata = "name=Javier&otherparam=ignoredvalue";
+                
+                var myreadystate;
+                
+                $(examplediv).find('.trigger').click(myreadystate = 
+                    $.ajax(
+                    {
+                        url: 'whattimeisit-json.jsp',
+                        dataType: 'json',
+                        context: examplediv,
+                        data: mydata,
+                        timeout: 1000, //400 for fail
+                        type: "POST",
+                        success: function( strData ){
+                            $(this).find( ".result" ).text( strData.Saludation + " # " + strData.Time );
+                            $(this).find(".log").text(myreadystate);
+                        },                 
+                        error: function(x, t, m) {
+                            $(this).find( ".result" ).text( "Ajax call did NOT complete ["+t+"]" );
+                        }                        
+                    }).readyState);
+                
+            </script>
+        </div>        
         
     </body>
 </html>

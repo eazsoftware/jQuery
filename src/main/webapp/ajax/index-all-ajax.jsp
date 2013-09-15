@@ -37,7 +37,9 @@
         <li><a href="jqueryajax-ajax.jsp"><h4>jQuery.ajax</h4></a></li>
     </ul> 
         
-    
+    <ul style="list-style-type:disc">
+        <li><a href="shorthand-load.jsp"><h4>shorthand-load</h4></a></li>
+    </ul>    
    
     
 </body>

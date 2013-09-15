@@ -4,7 +4,7 @@
 -->
 <jsp:include page="../header.jsp" /> 
 <body>
-    <h1>JQueryUI Child filter Selectors</h1>
+    <h1>JQueryUI Hierarchy Selectors</h1>
 
     <a href="http://api.jquery.com/category/selectors/hierarchy-selectors/"><h3>Hierarchy Selectors in jquery.com</h3></a>
     
