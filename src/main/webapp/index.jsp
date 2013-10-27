@@ -8,7 +8,16 @@
 
     <ul style="list-style-type:circle">
         <li><a href="ajax/index-all-ajax.jsp"><h4>All Ajax</h4></a></li>
-        
+        <ul>
+            <li><a href="ajax/index-globalajaxeventhandlers-ajax.jsp"><h4>Ajax - Global Ajax Event Handlers</h4></a></li>
+            <li><a href="ajax/index-helper-functions.jsp"><h4>Ajax - Helper functions</h4></a></li>        
+            <li><a href="ajax/index-low-level-interface.jsp"><h4>Ajax - Low level interface</h4></a></li>                
+            <li><a href="ajax/index-shorthand-methods.jsp"><h4>Ajax - Shorthand methods</h4></a></li>         
+        </ul>
+    </ul>  
+    
+    <ul style="list-style-type:circle">
+        <li><a href="attributes/index-all-attributes.jsp"><h4>All attributes</h4></a></li>
     </ul>     
     
     <ul style="list-style-type:disc">
